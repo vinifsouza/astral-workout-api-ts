@@ -1,0 +1,15 @@
+{
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+  },
+  "eslint.validate": [
+    "typescript"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "code-runner.executorMap": {
+    "javascript": "node",
+    "typescript": "node -r ts-node/register/transpile-only -r tsconfig-paths/register -r dotenv/config",
+  }
+}
