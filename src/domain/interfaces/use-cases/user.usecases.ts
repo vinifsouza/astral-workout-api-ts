@@ -1,9 +1,9 @@
-import { User } from "../../entities/user.entity";
+import { IUser } from "../../entities/user.entity";
 
 export interface IGetAllUsersUseCase {
-  execute(): Promise<User[]>;
+  execute(): Promise<IUser[]>;
 }
 
 export interface ICreateUserUseCase {
-  execute(user: User): Promise<User>;
+  execute(user: IUser): Promise<IUser>;
 }

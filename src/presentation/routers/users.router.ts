@@ -1,24 +1,25 @@
 import express, { Request, Response } from 'express';
-import { ICreateUserUseCase, IGetAllUsersUseCase } from 'src/domain/interfaces/use-cases/user.usecases';
 import { UserController } from '../controllers/users.controller';
+import { UserRepository } from '../../domain/repositories/user.repository';
+import { CreateUserUseCase, GetAllUsersUseCase } from '../../domain/use-cases/user.use-case';
 
 const usersRouter = express.Router();
+const userRepository = new UserRepository();
+const createUserUseCase = new CreateUserUseCase(userRepository);
+const getAllUsersUseCase = new GetAllUsersUseCase(userRepository);
 
-export default function UserRouter(
-  createUserUseCase: ICreateUserUseCase,
-  getAllUsersUseCase: IGetAllUsersUseCase
-) {
+export default function UserRouter() {
   const userController = new UserController(
       getAllUsersUseCase,
       createUserUseCase
     );
 
   usersRouter.get('/', async (req: Request, res: Response) => {
-    return await userController.getAll(req, res);
+    return userController.getAll(req, res);
   });
 
   usersRouter.post('/', async (req: Request, res: Response) => {
-    return await userController.create(req, res);
+    return userController.create(req, res);
   });
 
   return usersRouter;

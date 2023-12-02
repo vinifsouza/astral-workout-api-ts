@@ -7,7 +7,6 @@ export class CreateUserUseCase {
   ) {}
 
   async execute(user: IUser): Promise<IUser> {
-    console.log('CreateUserUseCase');
     return this.userRepository.create(user);
   }
 }
@@ -18,7 +17,6 @@ export class GetAllUsersUseCase {
   ) {}
 
   async execute(): Promise<IUser[]> {
-    console.log('GetAllUsersUseCase');
     return this.userRepository.getAll();
   }
 }
