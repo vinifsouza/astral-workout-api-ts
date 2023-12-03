@@ -1,4 +1,4 @@
-import { IUserDataSource } from "@data/interfaces/data-sources/user.data-source";
+import { IUserDataSource } from '@models/user.model';
 import { IUser } from "@entities/user.entity";
 import { IUserRepository } from "@interfaces/repositories/user.repository";
 

@@ -13,6 +13,7 @@
     "paths": {
       "@src/*": ["./src/*"],
       "@data/*": ["./src/data/*"],
+      "@models/*": ["./src/data/data-sources/models/*"],
       "@utils/*": ["./src/domain/utils/*"],
       "@interfaces/*": ["./src/domain/interfaces/*"],
       "@entities/*": ["./src/domain/entities/*"],

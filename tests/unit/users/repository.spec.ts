@@ -1,6 +1,6 @@
 import { IUser } from '@entities/user.entity';
 import { IUserRepository } from '@interfaces/repositories/user.repository';
-import { IUserDataSource } from '@data/interfaces/data-sources/user.data-source';
+import { IUserDataSource } from '@models/user.model';
 import { UserRepository } from '@repositories/user.repository';
 
 class MockUserDataSource implements IUserDataSource {
