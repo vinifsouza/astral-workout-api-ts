@@ -3,7 +3,7 @@ import { IUserRepository } from "../interfaces/repositories/user.repository";
 import { ICreateUserUseCase, IGetAllUsersUseCase } from "@interfaces/use-cases/user.usecases";
 
 export class CreateUserUseCase implements ICreateUserUseCase {
-  userRepository: IUserRepository
+  userRepository: IUserRepository;
   constructor(userRepository: IUserRepository) {
     this.userRepository = userRepository;
   }
@@ -14,7 +14,7 @@ export class CreateUserUseCase implements ICreateUserUseCase {
 }
 
 export class GetAllUsersUseCase implements IGetAllUsersUseCase {
-  userRepository: IUserRepository
+  userRepository: IUserRepository;
   constructor(userRepository: IUserRepository) {
     this.userRepository = userRepository;
   }

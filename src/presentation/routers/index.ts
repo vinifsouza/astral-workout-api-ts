@@ -1,4 +1,4 @@
-import express from 'express'
+import express from 'express';
 import UserRouter from './users.router';
 import { CreateUserUseCase, GetAllUsersUseCase } from '@use-cases/user.use-case';
 import { UserRepository } from '@repositories/user.repository';
@@ -19,6 +19,6 @@ router.get('/', (req, res) => {
 
 router.all('*', (req, res) => {
   res.status(404).send({ message: 'Not Found' });
-})
+});
 
 export default router;

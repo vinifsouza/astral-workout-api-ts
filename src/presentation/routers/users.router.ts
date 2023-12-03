@@ -9,9 +9,9 @@ export default function UserRouter(
   createUserUseCase: CreateUserUseCase
 ) {
   const userController = new UserController(
-      getAllUsersUseCase,
-      createUserUseCase
-    );
+    getAllUsersUseCase,
+    createUserUseCase
+  );
 
   usersRouter.get('/', async (req: Request, res: Response) => {
     return userController.getAll(req, res);

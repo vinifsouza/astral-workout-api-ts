@@ -7,7 +7,7 @@ export class UserController {
   constructor(
     private readonly getAllUsersUseCase: IGetAllUsersUseCase,
     private readonly createUserUseCase: ICreateUserUseCase
-    ) {}
+  ) {}
 
   async create(request: Request, response: Response) {
     const user: IUser = {
@@ -23,8 +23,8 @@ export class UserController {
       const createdUser = await this.createUserUseCase.execute(user);
 
       return response.json(createdUser);
-    } catch (error: any) {
-      return response.status(400).json({ message: error.message });
+    } catch (error: unknown) {
+      return response.status(400).json({ message: (error as Error).message });
     }
   }
 
@@ -33,8 +33,8 @@ export class UserController {
       const users = await this.getAllUsersUseCase.execute();
 
       return response.json(users);
-    } catch (error: any) {
-      return response.status(400).json({ message: error.message });
+    } catch (error: unknown) {
+      return response.status(400).json({ message: (error as Error).message });
     }
   }
 }
