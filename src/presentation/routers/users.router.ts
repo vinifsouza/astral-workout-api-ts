@@ -1,14 +1,13 @@
 import express, { Request, Response } from 'express';
 import { UserController } from '../controllers/users.controller';
-import { UserRepository } from '../../domain/repositories/user.repository';
 import { CreateUserUseCase, GetAllUsersUseCase } from '../../domain/use-cases/user.use-case';
 
 const usersRouter = express.Router();
-const userRepository = new UserRepository();
-const createUserUseCase = new CreateUserUseCase(userRepository);
-const getAllUsersUseCase = new GetAllUsersUseCase(userRepository);
 
-export default function UserRouter() {
+export default function UserRouter(
+  getAllUsersUseCase: GetAllUsersUseCase,
+  createUserUseCase: CreateUserUseCase
+) {
   const userController = new UserController(
       getAllUsersUseCase,
       createUserUseCase
