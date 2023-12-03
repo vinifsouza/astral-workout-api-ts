@@ -2,10 +2,12 @@ import express from 'express';
 import UserRouter from './users.router';
 import { CreateUserUseCase, GetAllUsersUseCase } from '@use-cases/user.use-case';
 import { UserRepository } from '@repositories/user.repository';
+import { UserDataSource } from '@data-sources/users.data-source';
 
 const router = express.Router();
 
-const userRepository = new UserRepository();
+const userDataSource = new UserDataSource();
+const userRepository = new UserRepository(userDataSource);
 const getAllUsersUseCase = new GetAllUsersUseCase(userRepository);
 const createUserUseCase = new CreateUserUseCase(userRepository);
 
